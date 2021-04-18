@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+<div class="container" style="margin: 20vh auto;">
+    <div class="card">
+      <div class="card-body">
+        <img src="<%=current.img%>" class="float-left rounded-circle">
+        <div class="message">
+          <h5 class="card-title">&nbsp<%=current.name%></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><% if(current.authenticated){%>
+              &nbsp you are authenticated user
+              <%} else{%>
+              &nbsp you havent been authenticated. mail at: <a>rudha992@gmail.com</a> for authentication
+                <%}%>
+        </h6>
+          <p class="card-text">&nbsp you have shared your profile info with us. mail us for deleting your account from database</p>
+        </div>
+       
+      </div>
+    </div>
+
+
+
+<%- include("../partials/footer") %>

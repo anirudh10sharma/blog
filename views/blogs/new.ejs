@@ -1,0 +1,38 @@
+<%- include("../partials/header") %>
+
+    <!--Navbar -->
+<%- include("../partials/navbar") %>
+  <!--/.Navbar -->
+
+
+  <div class="container-sm" style="margin:10vw ;margin-top: 3.8rem;">
+    <form method="POST" action="/blogs/new" >
+        <div class="mb-3">
+          <label for="name" class="form-label">title</label>
+          <input type="text" class="form-control" id="title" name="blog[title]" placeholder="blog title" >
+          
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input type="text" class="form-control" id="image" name="blog[image]" placeholder="image" >
+        </div>
+        <div class="mb-3">
+            <label for="sub" class="form-label">sub</label>
+            <input type="text" class="form-control" id="sub" name="blog[sub]" placeholder="sub headline" >
+          </div>
+          <div class="mb-3">
+            <label for="about" class="form-label">about</label>
+            <input type="text" class="form-control" id="about" name="blog[about]" placeholder="about" >
+          </div>
+          <div class="mb-3">
+            <label for="content" class="form-label">content</label>
+            <textarea class="form-control" name="blog[content]" id="content" cols="30" rows="5"></textarea>
+          </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+
+
+  <%- include("../partials/footer") %>

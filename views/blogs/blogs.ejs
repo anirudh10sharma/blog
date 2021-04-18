@@ -1,0 +1,99 @@
+<%- include("../partials/header") %>
+
+    <!--Navbar -->
+<%- include("../partials/navbar") %>
+  <!--/.Navbar -->
+
+  
+
+
+
+<!--crousel-->
+
+<div class="container" style="margin-top: 10vh;">
+    <div class="row pt-1 pb-1">
+        <div class="col-lg-12">
+            <h5 class="text-center" style="width: 100%; background-color: rgb(255, 115, 0);">"learned all about life,</h5>
+            <h5 class="text-center" style="width: 100%; background-color: rgb(231, 223, 208);">"with a ball on my feet"</h5>
+            <h5 class="text-center" style="width: 100%; background-color: rgb(18, 136, 38);"> -Ronaldinho</h5>
+        </div>
+    </div>
+</div>
+<section>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+             
+          <section class='card-containera'>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="carda" style="background-image: url('https://iftwc.com/wp-content/uploads/2020/04/First-try-logo.png');background-size: contain;background-repeat: no-repeat;height:80vh">
+                  
+                  <div class="card-body">
+                    
+                    
+                  </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <% for(let blog of blogs) {%>
+         <%if(blog.authenticated){%>
+        <div class="carousel-item">
+             <a href="/blogs/<%=blog._id%>" style="text-decoration:none">
+              <section class='card-containera'>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="carda" >
+                      <img src="<%= blog.image%>" class="card-img-top" style="max-height:360px;" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= blog.title%></h5>
+                        <p class="card-text"><%= blog.sub%></p>
+                        <h5 class="card-title"><%= blog.content%></h5>
+                        
+                      </div>
+                  </div>
+                </div>
+              </section>
+            </a>
+            </div>
+              <%}%>
+              <% }%>
+            
+            
+            <!--https://upload.wikimedia.org/wikipedia/commons/8/8d/Yarra_Night_Panorama%2C_Melbourne_-_Feb_2005.jpg-->
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span style="color:black" class="carousel-control-prev-icon" aria-hidden="false"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span style="color: black;" class="carousel-control-next-icon" aria-hidden="false"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+<div class="container">
+<section class="card-container">
+  <% for(let blog of blogs) {%>
+    <%if(!blog.authenticated){%>
+      <a href="/blogs/<%=blog._id%>" style="text-decoration: none;">
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card" >
+      <img src="<%= blog.image%>" class="card-img-top" style="height: 600px" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= blog.title%></h5>
+        
+          
+        </div>
+    </div>
+  </div>
+</a>
+  <%}%>
+              <% }%>
+  
+      
+    </section>
+  </div>
+
+
+<%- include("../partials/footer") %>

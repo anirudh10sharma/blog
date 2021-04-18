@@ -1,0 +1,85 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+<div class="container" style="background-color: rgba(0, 0, 0, 0.342); margin: 100px auto;">
+<div class="card" style="background-color: rgba(34, 46, 26, 0.589); width: 100%; text-align: center">
+    <img src="<%=blog.image%>" altclass="card-img-top" alt="...">
+    <div class="card-body">
+      <h2 class="card-title"><%=blog.title%></h2>
+      
+      <p class="card-description"><%=blog.sub%></p>
+      <p><%=blog.content%></p>
+      <h5>#<%=blog.about%></h5>
+    
+    <div style="width:100%;display:flex;justify-content:flex-end;"> <h4>created by-</h4>
+        <img src="<%=blog.author.img%>" class="rounded-circle z-depth-0"
+            alt="avatar image" height="35">
+            <p>&nbsp <%=blog.author.name%>  &nbsp </p>
+           </div>
+           <div style="width:100%;display:flex;justify-content:flex-end;"> <h6 >created on-<%=blog.time%></h6></div>
+           <div style="width: 100%;display: flex;justify-content:center;">
+
+            <% if(current){%>
+                
+            
+                <% if(current.id==blog.author.id || current.authenticated){%>
+                    
+            <form method="POST" action="/blogs/<%= blog._id %>?_method=DELETE" class="mt-2">
+                <button class="btn btn-danger">Delete</button>
+              </form><%}%>
+              
+              <%if(current.authenticated){%>
+                <%if(blog.authenticated){%>
+                    <form method="POST" action="/blogs/deauthenticate/<%= blog._id %>?_method=PATCH" class="mt-2">
+                        <button class="btn btn-success">de authenticate</button>
+                      </form>
+                      <%} else {%>
+                    <form method="POST" action="/blogs/authenticate/<%= blog._id %>?_method=PATCH" class="mt-2">
+                    <button class="btn btn-success">authenticate</button>
+                  </form>
+              <%}}}%>
+             
+    
+            
+        </div>
+    </div>
+    <div class="col-lg-6" style="margin: auto;">
+        <h2>Leave a Review</h2>
+        <form method="POST" action="/review/<%= blog._id %>">
+          
+          <div class="mb-3">
+            <label class="form-label" for="body">Review</label>
+            <textarea class="form-control" name="review[comment]" id="body" cols="30" rows="4"></textarea>
+          </div>
+
+          <button class="btn btn-success">Submit</button>
+
+        </form>
+
+        <div class="mt-5">
+          <%for(let review of blog.reviews){%>
+
+            <div class="card mb-4">
+              <div class="card-header">
+                <div style="display: inline-block;"><img src="<%=review.author.img%>" style="display: block;" class="rounded-circle z-depth-0"
+                alt="avatar image" height="35">
+           <p> <%=review.author.name%></p>
+                </div></div>
+              <div class="card-body">
+                <p class="card-text"> <strong>Review :</strong><%= review.comment %></p>
+               
+              </div>
+            </div>
+          <%}%>
+        </div>
+
+  
+      </div>
+
+  </div>
+
+</div>
+
+
+
+<%- include("../partials/footer") %>
