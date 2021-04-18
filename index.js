@@ -98,8 +98,8 @@ app.get("/auth/google", passport.authenticate("google", {
 passport.use(
     new GoogleStrategy(
       {
-        clientID: "784287410700-2krvqh92djat38ma05aetjkj5an5lbu8.apps.googleusercontent.com",
-        clientSecret: "PvaHmQrasjmpITdZS248KRcR",
+        clientID: "784287410700-5b8rs4sfjoph5mippjg07rq1nisuifu9.apps.googleusercontent.com",
+        clientSecret: "ZbBZ3Vhq-idE0lZVop3kxBol",
         callbackURL: "/auth/google/callback",
         proxy: true
       },
