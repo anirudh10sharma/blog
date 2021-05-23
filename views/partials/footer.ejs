@@ -35,7 +35,8 @@
         'negative': 'Sorry about that. What went wrong?'
     },
     "ignore-storage": true,
-    "no-header":true
+    "no-header":true,
+    "enable-typing-suggestions":true
 
       
     };
@@ -73,7 +74,7 @@
     if(element.innerText=='hide bot'){
       HaptikSDK.hide();
       element.innerText='show bot'
-      HaptikSDK.prompt("hey <%=current.name%> check match results","match result")
+      <% if(current){%>HaptikSDK.prompt("hey <%=current.name%> check match results","match result")<%}%>
     }
     else
     {
