@@ -11,6 +11,14 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
+        <% if(current){%>
+          <li>
+            <a class='nav-link' style="cursor: pointer;" id="cs" >check score</a>
+          </li>
+          <li>
+          <a class='nav-link' id="hs" style="cursor: pointer;">hide bot</a>
+        </li>
+          <%}%>
         <li class="nav-item">
           <a class="nav-link" href="/blog/new">new</a>
         </li>

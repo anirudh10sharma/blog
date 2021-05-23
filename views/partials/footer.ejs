@@ -5,13 +5,100 @@
       "business-id": "3486",
       "client-id": "4260f620c9cc96eb9b5990a032b4c259e045cb2a",
       "base-url": "https://staging.hellohaptik.com/",
+      "custom-button": true,
+      "custom-css": "/css/cstom.css",
+      "mode": "fsm",
+      "enable-user-feedback":true,
+      'user-feedback-tags': {
+        // tags to show when feedback is positive
+      // <array of strings>  
+        'positive': [
+            'Seemed human', 
+            'Easy to understand',
+            'It was relevant',
+            'That was fast'
+        ],
+        // tags to show when feedback is negative
+      // <array of strings>
+        'negative': [
+            'Unrelated response', 
+            'Delayed response', 
+            'Repetitive response',
+            'Unhelpful message'
+        ]
+    },
+    'user-feedback-questions': {
+        // when feedback is positive
+        'positive': 'Yay! What did you like?',
+    
+        // when feedback is negative
+        'negative': 'Sorry about that. What went wrong?'
+    },
+    "ignore-storage": true,
+    "no-header":true
+
+      
     };
   </script>
+
+
+
+
   <script
     type="text/javascript"
     charset="UTF-8"
     src="https://toolassets.haptikapi.com/platform/javascript-xdk/production/loader.js"
   ></script>
+  
+  <% if(!current){%>
+    
+    
+    
+    <script>document.addEventListener('haptik_sdk',()=>{
+      HaptikSDK.destroy();
+    });</script>
+
+
+
+    <%}%>
+     
+
+
+
+ <script>
+   var element =document.getElementById("hs")
+   
+   if(typeof(element) != 'undefined' && element != null){
+     element.addEventListener("click",()=>{
+    if(element.innerText=='hide bot'){
+      HaptikSDK.hide();
+      element.innerText='show bot'
+      HaptikSDK.prompt("hey <%=current.name%> check match results","match result")
+    }
+    else
+    {
+      HaptikSDK.show();
+      element.innerText='hide bot'
+    }
+  })
+   }
+   var el=document.getElementById("cs")
+   if(typeof(el) != 'undefined' && el != null){
+    el.addEventListener("click",()=>{
+      
+      
+      if(element.innerText=='show bot'){
+      
+      element.innerText='hide bot'
+    }
+
+
+      HaptikSDK.launchMessage("match result", "false")
+    })}
+ </script>
+
+
+
 </body>
 
 </html>

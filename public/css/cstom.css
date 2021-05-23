@@ -1,0 +1,56 @@
+
+  /* task box */
+  .taskbox-body {
+      background-color: rgb(110, 107, 107) !important;
+    border-radius : 20px !important;
+  }
+  
+  .taskbox-body .taskbox-tab {
+    background-color: rgba(243, 241, 241, 0.705) !important;
+    width : 100px !important;
+  }
+  
+ 
+  
+  /* chat window - top header */
+  .header{
+    background-color : rgb(99, 96, 96) !important;
+    color: white !important;
+  }
+  
+  /* chat window - message section */
+.hsl-bubble-text.v2.message-section-message-bubble-text{
+    background-color:rgb(255, 99, 9);
+    border: none;
+    color: white;
+}
+  
+
+  .message-section-area {
+      background-color:black !important;
+
+    background-image: url('https://i.pinimg.com/originals/b3/93/fc/b393fcb747c399ca25edb56c273a6061.png') !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow-y: none !important;
+  }
+  
+  
+  
+  .fixed-bottom-area  {
+    display: none;
+  }
+  
+  /* chat window - composer */
+  .composer, .composer > textarea {
+    background-color : rgba(66, 248, 75, 0.671) !important;
+  }
+  
+  .composer > textarea, .composer > textarea::-webkit-input-placeholder {
+    color: rgb(17, 17, 17) !important;
+    border-radius: 10%;
+  }
+  
+  .composer-icon.right {
+    transform: rotate(-90deg) !important;
+  }
